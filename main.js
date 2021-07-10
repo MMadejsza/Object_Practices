@@ -28,3 +28,11 @@ console.log("fourthObject", fourthObject)
 const fObject = Object.assign(thirdObject, o1);
 console.log("fObject", fObject)
 
+const o111 = { a: 1, b: 1, c: 1 };
+const o2 = { b: 2, c: 2 };
+const o3 = { c: 3 };
+
+const obj = Object.assign({}, o111, o2, o3);
+console.log(obj); // { a: 1, b: 2, c: 3 }
+console.log(o111)
+// copied without changing o111 because it's not the target.
