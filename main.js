@@ -1,36 +1,12 @@
-const person = {
-    isHuman: false,
-    printIntroduction: function () {
-        console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
-    }
-};
-console.log(person)
-person.printIntroduction();
+var o = {}; // Creates a new object
 
-const betterPerson = Object.create(person);
-console.log("betterPerson", betterPerson)
+Object.defineProperty(o, 'a', {
+    value: 37,
+    writable: false
+});
 
-betterPerson.name = "John";
-betterPerson.age = 18;
-betterPerson.origin = "British";
-
-console.log("betterPerson later", betterPerson);
-betterPerson.printIntroduction()
-betterPerson.printIntroduction = function () {
-    console.log(`My name is ${this.name}. Am I human? ${this.isHuman} I'm ${this.age}`);
-}
-betterPerson.printIntroduction()
-betterPerson.printIntroduction = function (origin) {
-    console.log(`My name is ${this.name}. Am I human? ${this.isHuman} I'm ${this.age} and ${origin}`);
-}
-betterPerson.printIntroduction("British")
-
-let str = "string"
-let destructed2 = [...str]
-console.log(destructed2)
-
-let destructed3 = { ...person }
-console.log(destructed3)
-
-let destructed = [...person]
-console.log(destructed)
+console.log(o.a); // logs 37
+o.a = 25; // No error thrown
+// (it would throw in strict mode,
+// even if the value had been the same)
+console.log(o.a); // logs 37. The assignment didn't work.
