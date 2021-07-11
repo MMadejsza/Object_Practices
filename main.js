@@ -32,3 +32,33 @@ Object.defineProperty(betterPerson, 'Religion', {
     configurable: false, //By default not to delete
     enumerable: true, //Object.keys works now
 })
+
+
+
+var pattern = {
+    get() {
+        return 'I always return this string, ' +
+            'whatever you have assigned';
+    },
+    set() {
+        this.myname = 'this is my name string';
+    }
+};
+
+function TestDefineSetAndGet() {
+    Object.defineProperty(this, 'myproperty', pattern);
+}
+
+var instance = new TestDefineSetAndGet();
+
+let pattern2 = {
+    get() {
+        return "from get"
+    },
+
+    set() {
+        instance.my3prop = "from set"
+    }
+};
+
+Object.defineProperty(instance, "from pattern2", pattern2) // dlaczego nie przypisuje my3prop, tworzy object na bieżąco?
