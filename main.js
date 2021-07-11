@@ -1,64 +1,31 @@
-const person = {
-    isHuman: false,
-    printIntroduction: function () {
-        console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
-    }
-};
-console.log(person)
-person.printIntroduction();
+str = Object("String");
+console.log(str)
+console.log(
+    Object.entries(str)
+)
+let s = Object.entries(str);
+const anObj = { 100: 'a', 2: 'b', 7: 'd', 101: 'c' };
+console.log(Object.entries(anObj));
 
-const betterPerson = Object.create(person);
-betterPerson.name = "John";
-betterPerson.age = 18;
-betterPerson.origin = "British";
+console.log(Object.entries('string'));
 
-
-var o = {}; // Creates a new object
-
-Object.defineProperty(o, 'a', {
-    value: 37,
-    writable: false
-});
-
-console.log(o.a); // logs 37
-o.a = 25; // No error thrown
-// (it would throw in strict mode,
-// even if the value had been the same)
-console.log(o.a); // logs 37. The assignment didn't work.
-
-Object.defineProperty(betterPerson, 'Religion', {
-    value: "Muslim",
-    writable: true, // value changeable
-    configurable: false, //By default not to delete
-    enumerable: true, //Object.keys works now
-})
-
-
-
-var pattern = {
-    get() {
-        return 'I always return this string, ' +
-            'whatever you have assigned';
-    },
-    set() {
-        this.myname = 'this is my name string';
-    }
-};
-
-function TestDefineSetAndGet() {
-    Object.defineProperty(this, 'myproperty', pattern);
+const obj = { a: 5, b: 7, c: 9 };
+let o = Object.entries(obj)
+console.log(o)
+for (const [key, value] of Object.entries(obj)) {
+    console.log(`${key} ${value}`);
 }
 
-var instance = new TestDefineSetAndGet();
+Object.entries(obj).forEach(([key, value]) => {
+    console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
+});
 
-let pattern2 = {
-    get() {
-        return "from get"
-    },
+console.log(Object.fromEntries(s))
 
-    set() {
-        instance.my3prop = "from set"
-    }
-};
+let c = [['0', 'a'], ['1', 'b'], ['2', 'c']]
+console.log(Object.fromEntries(c))
 
-Object.defineProperty(instance, "from pattern2", pattern2) // dlaczego nie przypisuje my3prop, tworzy object na bieżąco?
+const object1 = { a: 1, b: 2, c: 3 };
+console.log(object1)
+const object2 = Object.fromEntries(Object.entries(object1).map(([key, value]) => [key, value ** 3]))
+console.log(object2)
