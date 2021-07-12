@@ -9,3 +9,5 @@ Object.freeze() "vs" Object.preventExtensions()
 configurable, writtable,
 
     constructor i klasy
+
+Promise i proxy
