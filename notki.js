@@ -27,3 +27,5 @@ arr.every((elem, index, arr) => {
 Dlaczego tylko 2 iteracje a nie do 0 ?
 
     https ://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter nie rozumiem w ogóle tego zastosowania w przykładach i tych returnów
+
+metoda Array.sort() dla rosnącej kolejności cyfr lub stringów
